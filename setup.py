@@ -8,4 +8,4 @@ setup(name='arcade-game-center-api',
       author_email='gdh0608@naver.com',
       description='Korean Arcade game center API',
       packages=['arcapi'],
-      install_requires=['bs4, requests'])
+      install_requires=['bs4', 'requests'])
