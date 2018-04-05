@@ -44,6 +44,7 @@ def get_game_centers_from_wiki_table(wiki_tables):
 
         except IndexError:
             pass
+
         center['games'] = []
 
         if len(wiki_tables) >= 2:
