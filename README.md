@@ -1,2 +1,2 @@
 # arcpy
-python arcade game center parser from 'Namu Wiki'
+python arcade game center parsing api from 'Namu Wiki'
