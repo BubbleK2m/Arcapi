@@ -6,14 +6,14 @@ import re
 
 GAME_CENTER_WIKI_URL = 'https://namu.wiki/w/오락실'
 
-CITIES = [
+CITIES = {
     '서울', '인천',
     '경기/남부', '경기/북부', '강원',
     '대전', '세종', '충남', '충북',
     '부산', '울산', '경남', '경북',
     '광주', '전남', '전북',
     '제주'
-]
+}
 
 
 def get_game_centers_from_wiki_table(wiki_tables):
@@ -21,11 +21,11 @@ def get_game_centers_from_wiki_table(wiki_tables):
     Get game centers from wiki table
     about game centers
 
-    :param wiki_tables: Wiki table
-    :type wiki_tables: list
+    Args:
+        wiki_tables(table): Wiki table
 
-    :return: Game center dictionary list
-    :rtype: list
+    Return:
+        list: Game center dictionary list
     """
 
     centers = []
@@ -77,11 +77,11 @@ def get_game_centers_from_city(city_name):
     Get game centers from namu wiki article
     currently, only parse wiki table T0T
 
-    :param city_name: City name what you'll get game centers
-    :type city_name: str
+    Args:
+        city_name(str): City name what you'll get game centers
 
-    :return Game center dictionary list
-    :rtype: list
+    Return:
+        list: Game center dictionary list
     """
 
     if city_name not in CITIES:
