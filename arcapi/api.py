@@ -1,4 +1,4 @@
-from arcapi.util import strip_wiki_comment
+from arcapi.util import strip_wiki_comment, pick_address_string
 from bs4 import BeautifulSoup as Soup
 
 import requests
@@ -39,7 +39,12 @@ def get_game_centers_from_wiki_table(wiki_tables):
             # get information about game center
             center['name'] = strip_wiki_comment(rows[0].select('td')[0].get_text().strip()) or None
             center['kind'] = strip_wiki_comment(rows[0].select('td')[1].get_text().strip()) or None
+
             center['address'] = strip_wiki_comment(rows[2].select('td')[1].get_text().strip()) or None
+
+            if center['address']:
+                center['address'] = pick_address_string(center['address'])
+
             center['opening'] = strip_wiki_comment(rows[4].select('td')[1].get_text().strip()) or None
 
         except IndexError:
