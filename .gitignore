@@ -9,4 +9,4 @@
 
 # pypi packaging
 /dist/
-/arcade_game_center_api.egg-info/
+/arcapi.egg-info/

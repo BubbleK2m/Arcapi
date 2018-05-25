@@ -28,4 +28,4 @@ def pick_address_string(src):
     """
 
     match = re.match(r'.*?[로(지하)?|길동리]\s?(\d+-*)+\s?((번*길)\s?(\d+-*)+)?', src)
-    return match.group() if match else None
+    return match.group().strip() if match else None

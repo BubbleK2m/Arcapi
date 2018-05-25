@@ -1,7 +1,7 @@
 from setuptools import setup
 
-setup(name='arcade-game-center-api',
-      version='0.1.3',
+setup(name='arcapi',
+      version='1.0.0',
       url='https://github.com/DSMdongly/Arcapi',
       license='MIT',
       author='Toygrammer',
