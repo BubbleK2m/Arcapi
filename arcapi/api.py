@@ -69,11 +69,13 @@ def get_games_from_rows(rows):
             name = items['가동 중인 기기']
             price = items.get('가격')
             count = items.get('수량')
+            etc = items.get('비고')
 
             games.append({
                 'name': strip_wiki_comment(name.get_text().strip()),
                 'price': strip_wiki_comment(price.get_text().strip()) if price else None,
                 'count': strip_wiki_comment(count.get_text().strip()) if count else None,
+                'etc': strip_wiki_comment(etc.get_text().strip()) if etc else None,
             })
 
     return games
@@ -83,7 +85,7 @@ def get_game_centers_from_soup(soup):
     centers = []
 
     for content in [h.next_sibling for h in soup.select('.wiki-heading') if re.findall(r'[ⓚⓝⓢⓣ]+', h.text)]:
-        if len(re.findall(r"주소|영업시간|가동 중인 기기|수량|가격", content.text)) >= 5:
+        if len(re.findall(r"주소|영업시간|가동 중인 기기|수량|가격|비고", content.text)) >= 3:
             wiki_lists = content.select('.wiki-list')
             wiki_table_rows = content.select('.wiki-table tr')
 
@@ -91,7 +93,7 @@ def get_game_centers_from_soup(soup):
                 center_rows, game_rows = get_partition_from_rows(wiki_table_rows)
                 center = get_game_center_from_rows(center_rows)
 
-                center['game'] = get_games_from_rows(game_rows)
+                center['gamesit '] = get_games_from_rows(game_rows)
                 centers.append(center)
 
     return centers
